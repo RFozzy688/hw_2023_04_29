@@ -22,6 +22,16 @@ using System.Threading.Tasks;
 
 namespace hw_2023_04_29
 {
+    public class Company
+    {
+        public string NameCompany { get; set; }
+        public DateTime FoundationDate { get; set; }
+        public string Profile { get; set; }
+        public string Name { get; set; }
+        public string SurName { get; set; }
+        public int CountEmployee { get; set; }
+        public string Address { get; set; }
+    }
     internal class Program
     {
         static void Main(string[] args)
