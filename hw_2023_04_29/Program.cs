@@ -31,6 +31,11 @@ namespace hw_2023_04_29
         public string SurName { get; set; }
         public int CountEmployee { get; set; }
         public string City { get; set; }
+        public override string ToString()
+        {
+            return $"Название фирмы: {NameCompany}\nДата основания: {FoundationDate.ToShortDateString()}\nПрофиль: {Profile}\n" +
+                $"Имя: {Name}\nФамилия: {SurName}\nКоличество сотрудников: {CountEmployee}\nГород: {City}";
+        }
     }
     internal class Program
     {
@@ -51,7 +56,7 @@ namespace hw_2023_04_29
                     FoundationDate = new DateTime(2023, 4, 10),
                     Profile = "Marketing",
                     Name = "Emma",
-                    SurName = "Kiri",
+                    SurName = "Kirk",
                     CountEmployee = 60,
                     City = "Paris"
                 },
@@ -67,7 +72,7 @@ namespace hw_2023_04_29
                 new Company {
                     NameCompany = "White",
                     FoundationDate = new DateTime(2015, 9, 15),
-                    Profile = "Marketing",
+                    Profile = "Electronics",
                     Name = "Daniel",
                     SurName = "Black",
                     CountEmployee = 310,
@@ -83,6 +88,38 @@ namespace hw_2023_04_29
                     City = "USA"
                 }
             };
+
+            // 1 Отримати інформацію про всі фірми. 
+            var query = from i in companies
+                        select i;
+
+            Console.WriteLine("Все компании:\n");
+            foreach (var item in query)
+            {
+                Console.WriteLine(item + "\n");
+            }
+
+            //2 Отримати фірми, які мають у назві слово «Food».
+            query = from i in companies
+                        where i.NameCompany.IndexOf("Food") > -1
+                        select i;
+
+            Console.WriteLine("Все компании которые имеют в названии слово Food:\n");
+            foreach (var item in query)
+            {
+                Console.WriteLine(item + "\n");
+            }
+
+            //3 Отримати фірми, які працюють у галузі маркетингу. 
+            query = from i in companies
+                    where i.Profile == "Marketing"
+                    select i;
+
+            Console.WriteLine("Все компании которые работают в сфере маркетинга:\n");
+            foreach (var item in query)
+            {
+                Console.WriteLine(item + "\n");
+            }
         }
     }
 }
