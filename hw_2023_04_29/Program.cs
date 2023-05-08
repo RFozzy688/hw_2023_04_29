@@ -41,6 +41,8 @@ namespace hw_2023_04_29
     {
         static void Main(string[] args)
         {
+            const double daysOfYear = 365.25;
+
             List<Company> companies = new List<Company> {
                 new Company {
                     NameCompany = "Fast Food",
@@ -149,6 +151,61 @@ namespace hw_2023_04_29
                     select i;
 
             Console.WriteLine("Все компании где количество сотрудников от 100 до 300:\n");
+            foreach (var item in query)
+            {
+                Console.WriteLine(item + "\n");
+            }
+
+            //7 Отримати фірми, які знаходяться в Лондоні. 
+            query = from i in companies
+                    where i.City == "London"
+                    select i;
+
+            Console.WriteLine("Все компании которые находятся в Лондоне:\n");
+            foreach (var item in query)
+            {
+                Console.WriteLine(item + "\n");
+            }
+
+            //8 Отримати фірми, в яких прізвище директора White. 
+            query = from i in companies
+                    where i.SurName == "White"
+                    select i;
+
+            Console.WriteLine("Все компании в которые фамилия директора White:\n");
+            foreach (var item in query)
+            {
+                Console.WriteLine(item + "\n");
+            }
+
+            //9 Отримати фірми, які засновані більше двох років тому.
+            query = from i in companies
+                    where (DateTime.Now - i.FoundationDate).Days / daysOfYear > 2
+                    select i;
+
+            Console.WriteLine("Все компании которые основаны больше 2-х лет назад:\n");
+            foreach (var item in query)
+            {
+                Console.WriteLine(item + "\n");
+            }
+
+            //10 Отримати фірми з дня заснування яких минуло 123 дні.
+            query = from i in companies
+                    where (DateTime.Now - i.FoundationDate).Days > 123
+                    select i;
+
+            Console.WriteLine("Все компании которые основаны больше 123 дня назад:\n");
+            foreach (var item in query)
+            {
+                Console.WriteLine(item + "\n");
+            }
+
+            //11 Отримати фірми, в яких прізвище директора Black і мають у назві фірми слово «White». 
+            query = from i in companies
+                    where i.SurName == "Black" && i.NameCompany.IndexOf("White") > -1
+                    select i;
+
+            Console.WriteLine("Все компании в которых фамилия директора Black и в названии фирмы есть слово White:\n");
             foreach (var item in query)
             {
                 Console.WriteLine(item + "\n");
