@@ -120,6 +120,39 @@ namespace hw_2023_04_29
             {
                 Console.WriteLine(item + "\n");
             }
+
+            //4 Отримати фірми, які працюють у галузі маркетингу або IT.
+            query = from i in companies
+                    where i.Profile == "Marketing" || i.Profile == "IT"
+                    select i;
+
+            Console.WriteLine("Все компании которые работают в сфере маркетинга или IT:\n");
+            foreach (var item in query)
+            {
+                Console.WriteLine(item + "\n");
+            }
+
+            //5 Отримати фірми з кількістю працівників більшою, ніж 100.
+            query = from i in companies
+                    where i.CountEmployee > 100
+                    select i;
+
+            Console.WriteLine("Все компании где количество сотрудников > 100:\n");
+            foreach (var item in query)
+            {
+                Console.WriteLine(item + "\n");
+            }
+
+            //6 Отримати фірми з кількістю працівників у діапазоні від 100 до 300.
+            query = from i in companies
+                    where i.CountEmployee > 100 && i.CountEmployee < 300
+                    select i;
+
+            Console.WriteLine("Все компании где количество сотрудников от 100 до 300:\n");
+            foreach (var item in query)
+            {
+                Console.WriteLine(item + "\n");
+            }
         }
     }
 }
