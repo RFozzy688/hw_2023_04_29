@@ -30,12 +30,59 @@ namespace hw_2023_04_29
         public string Name { get; set; }
         public string SurName { get; set; }
         public int CountEmployee { get; set; }
-        public string Address { get; set; }
+        public string City { get; set; }
     }
     internal class Program
     {
         static void Main(string[] args)
         {
+            List<Company> companies = new List<Company> {
+                new Company {
+                    NameCompany = "Fast Food",
+                    FoundationDate = new DateTime(2022, 1, 1),
+                    Profile = "Marketing",
+                    Name = "Joe",
+                    SurName = "White",
+                    CountEmployee = 110,
+                    City = "London"
+                },
+                new Company {
+                    NameCompany = "Frozen Food",
+                    FoundationDate = new DateTime(2023, 4, 10),
+                    Profile = "Marketing",
+                    Name = "Emma",
+                    SurName = "Kiri",
+                    CountEmployee = 60,
+                    City = "Paris"
+                },
+                new Company {
+                    NameCompany = "White Dog",
+                    FoundationDate = new DateTime(2020, 9, 15),
+                    Profile = "IT",
+                    Name = "Henry",
+                    SurName = "Black",
+                    CountEmployee = 210,
+                    City = "London"
+                },
+                new Company {
+                    NameCompany = "White",
+                    FoundationDate = new DateTime(2015, 9, 15),
+                    Profile = "Marketing",
+                    Name = "Daniel",
+                    SurName = "Black",
+                    CountEmployee = 310,
+                    City = "Germany"
+                },
+                new Company {
+                    NameCompany = "Naughty Dog",
+                    FoundationDate = new DateTime(1984, 9, 27),
+                    Profile = "IT",
+                    Name = "Evan",
+                    SurName = "Wells",
+                    CountEmployee = 500,
+                    City = "USA"
+                }
+            };
         }
     }
 }
